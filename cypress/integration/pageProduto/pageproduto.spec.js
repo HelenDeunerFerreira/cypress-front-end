@@ -6,7 +6,7 @@ describe("Testes da página de produtos", () => {
   });
 
   it("Deve voltar a página de navegação ao clicar botão BACK", () => {
-    cy.get('.inventory_details_back_button').click();
-    // cy.url("contain", '.bm-item');
+    cy.get('.inventory_details_back_button').click({ force: true });
+    cy.url('contain', 'id'); //não está voltando à navegação principal
   });
 });
