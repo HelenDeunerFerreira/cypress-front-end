@@ -1,9 +1,5 @@
 import Base from './_base.page'
-
-const USERNAME = '#user-name'
-const PASSWORD = '#password'
-const BOTAO_LOGIN = '#login-button'
-const TXT_ERROR = '[data-test=error]'
+import { LOGIN } from './login.elements'
 
 export default class LoginSite extends Base {
     static acessoSauceDemo() {
@@ -11,13 +7,12 @@ export default class LoginSite extends Base {
     }
 
     static logar(usuario) {
-        super.typeValue(USERNAME, usuario)
-        super.typeValue(PASSWORD, 'secret_sauce')
-        super.clickOnElement(BOTAO_LOGIN)
-        // super.validarUrl('https://www.saucedemo.com/inventory.html')
+        super.typeValue(LOGIN.USERNAME, usuario)
+        super.typeValue(LOGIN.PASSWORD, 'secret_sauce')
+        super.clickOnElement(LOGIN.BOTAO_LOGIN)
     }
 
     static loginIncorreto() {
-        super.validateElementText(TXT_ERROR, 'Epic sadface: Username and password do not match any user in this service')
+        super.validateElementText(LOGIN.TXT_ERROR, 'Epic sadface: Username and password do not match any user in this service')
     }
 }

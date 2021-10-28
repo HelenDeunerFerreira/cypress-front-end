@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 
 import LoginSite from '../../pages/login.page'
+import faker from 'faker';
 
 describe("Testar login", () => {
     beforeEach(() => {
@@ -16,7 +17,7 @@ describe("Testar login", () => {
     })
 
     it('Realizar login incorreto', () => {
-        LoginSite.logar('standart_invalido')
+        LoginSite.logar(`${faker.name.firstName()}`)
         LoginSite.loginIncorreto()
     })
 })
